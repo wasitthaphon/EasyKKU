@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import org.jibble.simpleftp.SimpleFTP;
+
+import java.io.File;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -86,8 +91,27 @@ public class SignUpActivity extends AppCompatActivity {
     }   // Main Method
 
     private void upLoadImageToServer() {
+        //Change Policy
+        StrictMode.ThreadPolicy threadPolicy = new StrictMode.ThreadPolicy
+                .Builder().permitAll().build();
+        StrictMode.setThreadPolicy(threadPolicy);
 
-    }
+        try {
+            SimpleFTP simpleFTP = new SimpleFTP();
+            simpleFTP.connect("ftp.swiftcodingthai.com", 21,
+                    "kku@swiftcodingthai.com","Abc12345");
+
+            simpleFTP.bin();
+            simpleFTP.cwd("Image");
+            simpleFTP.stor(new File(imagePathString));
+            simpleFTP.disconnect();
+
+        } catch (Exception e) {
+            Log.d("12novV1", "e simpleFTP ==> " + e.toString());
+        }
+
+
+    }   //Upload
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
