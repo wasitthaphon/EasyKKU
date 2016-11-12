@@ -35,7 +35,6 @@ public class MyAlert {
             }
         });
         builder.show();
-
     }   // myDialog
 
 
