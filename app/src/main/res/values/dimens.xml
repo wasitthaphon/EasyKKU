@@ -5,6 +5,7 @@
 
     <dimen name="h1">30sp</dimen>
     <dimen name="h2">20sp</dimen>
-    <dimen name="icon">150dp</dimen> // Image size
+    <dimen name="icon">150dp</dimen>
+    // Image size
 
 </resources>
