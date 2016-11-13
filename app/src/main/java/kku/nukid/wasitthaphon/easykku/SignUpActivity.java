@@ -40,11 +40,12 @@ public class SignUpActivity extends AppCompatActivity {
     private ImageView imageView;
     private Button button;      // Ctrl + Space autoFill
     private String nameString, phoneString, userString, passwordString,
-    imagePathString, imageNameString;
+            imagePathString, imageNameString;
     private Uri uri;
     private boolean aBoolean = true;
     private String urlAddUser = "http://swiftcodingthai.com/kku/add_user_master.php";
     private String urlImage = "http://swiftcodingthai.com/kku/Image";
+
     /*
         then FileZilla --> SomeFiles --> CopyUrl --> Phase in Browser --> Clear protocol then add
         (swiftcodingthai.com/kku/Image/IMG_xxxxx.jpg)
@@ -141,7 +142,7 @@ public class SignUpActivity extends AppCompatActivity {
                         .add("Image", urlImage + imageNameString)
                         .build();
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.url(strings[0]).post(requestBody).build();
+                Request request = builder.url(params[0]).post(requestBody).build();
                 Response response = okHttpClient.newCall(request).execute();
                 return response.body().string();
 
