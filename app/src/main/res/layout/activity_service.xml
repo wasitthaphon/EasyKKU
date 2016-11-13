@@ -8,6 +8,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kku.nukid.wasitthaphon.easykku.ServiceActivity">
+    tools:context="kku.nukid.wasitthaphon.easykku.ServiceActivity"
+    android:background="@drawable/bg26">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/livFriend"
+        android:background="#82ffffff" />
 </RelativeLayout>
