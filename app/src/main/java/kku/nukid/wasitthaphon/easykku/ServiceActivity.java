@@ -2,6 +2,9 @@ package kku.nukid.wasitthaphon.easykku;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.ExpandedMenuView;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class ServiceActivity extends AppCompatActivity {
@@ -30,6 +33,18 @@ public class ServiceActivity extends AppCompatActivity {
                 phoneStrings, imageStrings);
         listView.setAdapter(myAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ConfirmCall(nameStrings[position], phoneStrings[position]);
+            }   //onItemClick
+        });
+
     }   //Main Method
+
+    private void ConfirmCall(String nameString, String phoneString) {
+
+    }
 
 }   //Main Class
