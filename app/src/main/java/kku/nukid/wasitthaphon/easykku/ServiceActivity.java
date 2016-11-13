@@ -80,7 +80,6 @@ public class ServiceActivity extends AppCompatActivity {
                     return;
                 }
                 startActivity(intent);
-
             }
         });
         builder.show();
